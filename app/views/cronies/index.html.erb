@@ -1,0 +1,46 @@
+
+<% if user_signed_in? %>
+
+
+<div id="cronies">
+
+   <table class="table table-striped table-bordered table-hover">
+	   	<thead class="table-dark">
+	   		<tr>
+	   			<th>Name</th>
+	   			<th>Email</th>
+	   			<th>Phone</th>
+	   			<th>Twitter</th>
+	   			<th></th>
+
+	   		</tr>
+	   	</thead>
+   	
+	   	<tbody>
+	   	  <% @cronies.each do |crony| %>
+	   	  	<% if crony.user == current_user %>
+	   		<tr>  		
+		   		<td>
+		   			<%= link_to crony.first_name + ' ' + crony.last_name, crony %>
+		   		</td>
+		   		<td><%= crony.email %></td>
+		   		<td><%= crony.phone %></td>
+		   		<td><%= crony.twitter %></td>
+		   		<td>
+		   			<%= button_to "Delete", crony, method: :delete,data: { confirm: 'Are you sure?'}, class: "btn btn-outline-danger btn-sm" %>
+		   		</td>
+	   		</tr>
+	   		<% end %>
+	   	  <% end %>
+	   	</tbody>
+   </table>
+  
+</div>
+<br>
+
+<%= link_to "New crony", new_crony_path, class:"btn btn-secondary" %>
+<% else %>
+
+	<h1>This is Home Page......</h1>
+
+<% end %>

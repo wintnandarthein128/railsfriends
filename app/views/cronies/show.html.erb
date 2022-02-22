@@ -1,0 +1,23 @@
+
+<div class="jumbotron">
+  <h1 class="display-4">
+  	<%= @crony.first_name %>
+		<%= @crony.last_name %>
+			
+  </h1>
+  <p class="lead">
+  	<%= @crony.email %> |
+  	<%= @crony.phone %> |
+  	<%= @crony.twitter %>	
+  </p>
+  <br>
+  <hr class="my-4">
+
+  <%= link_to "Edit", edit_crony_path(@crony), class:"btn btn-secondary" %> 
+
+  <%= button_to "Delete", @crony, method: :delete,data: { confirm: 'Are you sure?'}, class: "btn btn-outline-danger" %>
+
+  <%= link_to "Back", cronies_path, class:"btn btn-secondary" %>
+</div>
+
+

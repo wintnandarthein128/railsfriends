@@ -1,0 +1,13 @@
+<h1>Editing crony</h1>
+<br>
+<%= render "form", crony: @crony %>
+
+<br>
+
+<div>
+  <%= link_to "Show", @crony,class:"btn btn-secondary" %>
+
+  <%= button_to "Delete", @crony, method: :delete,data: { confirm: 'Are you sure?'}, class: "btn btn-outline-danger" %>
+
+  <%= link_to "Back", cronies_path, class:"btn btn-dark"%>
+</div>
